@@ -1,20 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    html {
-      background-color: rgb(20,20,20);
-      color: white;
-      font-family: sans-serif;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Execute JavaScript Code</title>
+    <script>
+        function executeCode() {
+            // Get the value from the input field
+            var code = document.getElementById('js-input').value;
+            try {
+                // Use eval to execute the code
+                // Note: Using eval can be dangerous if you're executing untrusted code
+                eval(code);
+            } catch (e) {
+                // Handle any errors that occur during execution
+                console.error('Error executing code:', e);
+                alert('Error executing code. Check the console for details.');
+            }
+        }
+    </script>
 </head>
 <body>
-  <p>this is just a test for javascript testing since using it might be blocked for certain browser.</p>
-  <input type="text" id="js-input"></input>
+    <h1>JavaScript Code Executor</h1>
+    <textarea id="js-input" rows="5" cols="40" placeholder="Type JavaScript code here..."></textarea><br>
+    <button onclick="executeCode()">Execute Code</button>
 </body>
 </html>
